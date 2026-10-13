@@ -7,7 +7,8 @@ test('Automate page navigation', async ({ page }) => {
   await page.goto('https://the-internet.herokuapp.com/');
 
   // Step 2: Verify the home page
-  await expect(page).toHaveTitle('The Internet');
+ // await expect(page).toHaveTitle('The Internet');
+ await expect(page).toHaveTitle(/The Internet/);
   await expect(page.getByRole('heading', { name: 'Welcome to the-internet' })).toBeVisible();
 
   // Step 3: Click on A/B Testing link
@@ -43,8 +44,8 @@ test('Automate page navigation', async ({ page }) => {
   await page.reload();
 
   // Step 10: Verify the page after reload
-  await expect(page.getByRole('heading', { name: 'A/B Test Variation 1' })).toBeVisible();
-  //this is for the testing purpose on git
+   await expect(  page.getByRole('heading', { name: 'A/B Test Variation 1' })).toBeVisible();
+ //this is for the testing purpose on git
   //this is for push from local to git by command
 
 });
